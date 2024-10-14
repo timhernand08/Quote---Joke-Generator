@@ -16,9 +16,9 @@ This project is a simple Python script that generates a random quote and a joke 
 ## How to Use
 
 1. Clone or download this repository to your local machine.
-2. Install the required libraries using `pip` if you haven't already:
+2. Install the required libraries using `pip`:
     ```bash
-    pip install requests
+    pip install -r requirements.txt
     ```
 3. Run the Python script:
     ```bash
@@ -48,3 +48,7 @@ Why don't skeletons fight each other?
 They don't have the guts!
 
 Make a new request: done
+```
+## License
+This project is licensed under the MIT License. See the LICENSE file for details
+
