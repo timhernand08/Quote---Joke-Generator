@@ -1,0 +1,7 @@
+Create a generator that gives a daily quote and joke using Python
+
+This generator should be able to automatically generate a new quote and joke daily when opened.
+
+There should be a button that allows you to regenerate a new quote and joke.
+
+Quotes and jokes should not repeat if shown (for at least a year.)
