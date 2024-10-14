@@ -50,5 +50,5 @@ They don't have the guts!
 Make a new request: done
 ```
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/timhernand08/Quote---Joke-Generator/blob/main/LICENSE) file for details
 
