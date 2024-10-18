@@ -12,7 +12,7 @@ def get_quote():
 def get_joke():
   response = requests.get(JOKE_API)
   json_data = json.loads(response.text)
-  try:#looks to see if there is a single joke and prints if there is
+  try:
     joke = json_data['joke']
     return joke
   except:
