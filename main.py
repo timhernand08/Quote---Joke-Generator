@@ -3,14 +3,12 @@ import requests, json
 QUOTE_API = 'https://zenquotes.io/api/random'
 JOKE_API = 'https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,explicit'
 
-#generates quote from api
 def get_quote():
   response = requests.get(QUOTE_API)
   json_data = json.loads(response.text)
   quote = json_data[0]['q'] + "\r\n - " + json_data[0]['a']
   return quote
 
-#generates jokes from an api
 def get_joke():
   response = requests.get(JOKE_API)
   json_data = json.loads(response.text)
@@ -22,13 +20,11 @@ def get_joke():
     delivery = json_data['delivery']
   return setup + "\n" + delivery
 
-#print quote and joke when run
 quote = get_quote()
 joke = get_joke()
 print(quote + "\n" + joke + "\n")
 
 
-#asks the user if they want to print a new quote/joke
 user = input("Please enter if you want a new quote or joke. Or enter 'done': ")
 while(user != "done"):
   if(user == "quote"):
