@@ -1,11 +1,9 @@
 import requests, json
-from memory import Memory 
+from memory import storeData, hasJoke, hasQuote
 from initdb import initialize_db
 
 QUOTE_API = 'https://zenquotes.io/api/random'
 JOKE_API = 'https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,explicit'
-
-memory = Memory
 
 def get_quote():
   response = requests.get(QUOTE_API)
@@ -36,7 +34,7 @@ while(user != "done"):
   if(user == "quote"):
     quote = get_quote()
     count =0
-    while memory.hasQuote(quote):
+    while hasQuote(quote):
       quote = get_quote()
       count+=1
       if count == 10:
@@ -45,7 +43,7 @@ while(user != "done"):
     print(quote)
   if(user == "joke"):
     joke = get_joke()
-    while memory.hasJoke(joke):
+    while hasJoke(joke):
       joke = get_joke()
       count+=1
       if count == 10:
@@ -54,5 +52,5 @@ while(user != "done"):
     print(joke)  
   user = input("\nMake a new request: ")
 
-memory.storeData(quote, joke)
+storeData(quote, joke)
 print("Data has been saved to memory. Thank you for using the Quote & Joke Generator!")
