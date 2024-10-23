@@ -1,5 +1,5 @@
-import requests, json
-from memory import storeData, hasJoke, hasQuote
+import requests, json # type: ignore
+from memory import storeData, hasJoke, hasQuote, update_time_trigger
 from initdb import initialize_db
 
 QUOTE_API = 'https://zenquotes.io/api/random'
@@ -28,6 +28,7 @@ quote = get_quote()
 joke = get_joke()
 print(quote + "\n" + joke + "\n")
 initialize_db()
+update_time_trigger()
 
 user = input("Please enter if you want a new quote or joke. Or enter 'done': ")
 while(user != "done"):
