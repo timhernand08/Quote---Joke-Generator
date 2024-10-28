@@ -49,6 +49,11 @@ They don't have the guts!
 
 Make a new request: done
 ```
+## New Features!
+Added memory database. This will store the last quotes and jokes that were given before the user terminated the program with "done". This will allow the program
+to keep track of what has been said so they won't be repeated. Any entries over 90 days old will be removed automatically so that they can be reused.
+
+
 ## License
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/timhernand08/Quote---Joke-Generator/blob/main/LICENSE) file for details
 

@@ -75,7 +75,7 @@ def timePassed(table):
         updated = datetime.strptime(row[2], "%Y-%m-%d %H:%M:%S")
         id = row[0]
         elapsed_time = (updated-created).days
-        if (elapsed_time >= 5):
+        if (elapsed_time >= 90):
             delete(id, table)
             
         
