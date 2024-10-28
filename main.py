@@ -28,7 +28,8 @@ quote = get_quote()
 joke = get_joke()
 print(quote + "\n" + joke + "\n")
 initialize_db()
-update_time_trigger()
+update_time_trigger("quote")
+update_time_trigger("joke")
 
 user = input("Please enter if you want a new quote or joke. Or enter 'done': ")
 while(user != "done"):
@@ -42,7 +43,7 @@ while(user != "done"):
         print("You're about to brick your PC homie")
         break
     print(quote)
-  if(user == "joke"):
+  elif (user == "joke"):
     joke = get_joke()
     while hasJoke(joke):
       joke = get_joke()
@@ -51,6 +52,8 @@ while(user != "done"):
         print("You're about to brick your PC homie")
         break
     print(joke)  
+  elif(user == "help"):
+    print("Whoa you entered a secret menu! Nothing has been programmed for this yet. I love you, bye.")
   user = input("\nMake a new request: ")
 
 storeData(quote, joke)
