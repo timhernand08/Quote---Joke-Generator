@@ -48,6 +48,7 @@ Why don't skeletons fight each other?
 They don't have the guts!
 
 Make a new request: done
+Data has been saved to memory. Thank you for using the Quote & Joke Generator!
 ```
 ## New Features!
 Added memory database. This will store the last quotes and jokes that were given before the user terminated the program with "done". This will allow the program
