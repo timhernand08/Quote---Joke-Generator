@@ -44,21 +44,19 @@ def hasJoke(joke):
 def delete(id, table):
     connect = sqlite3.connect('Client_data.db')
     cur = connect.cursor()
-    cur.execute("""DELETE FROM table=:table WHERE id =:ID """, {'table':table, 'ID':id})
+    cur.execute(f"""DELETE FROM {table} WHERE id =:ID """, {'ID':id})
     connect.commit()
     connect.close()
 
 
-def update_time_trigger():
+def update_time_trigger(table):
     connect = sqlite3.connect('Client_data.db')
     cur = connect.cursor()
-    cur.execute('''
+    cur.execute(f'''
         CREATE TRIGGER IF NOT EXISTS update_all_updated_at
         AFTER INSERT ON jokes 
         BEGIN 
-            UPDATE jokes
-            SET updated_at = CURRENT_TIMESTAMP;
-            UPDATE quotes
+            UPDATE {table}
             SET updated_at = CURRENT_TIMESTAMP;
         END;
     ''')
@@ -69,18 +67,20 @@ def update_time_trigger():
 def timePassed(table):
     connect = sqlite3.connect('Client_data.db')
     cur = connect.cursor()
-    cur.execute("SELECT id, created_at, updated_at FROM table=:table;", {'table': table})
-    table = cur.fetchall()
+    cur.execute(f"SELECT id, created_at, updated_at FROM {table}")
+    rows = cur.fetchall()
     connect.close()
-    for times in table:
-        created = datetime.strptime(times[1], "%Y-%m-%d %H:%M:%S")
-        updated = datetime.strptime(times[2], "%Y-%m-%d %H:%M:%S")
-        id = times[0]
-        if ((updated - created).days > 5):
+    for row in rows:
+        created = datetime.strptime(row[1], "%Y-%m-%d %H:%M:%S")
+        updated = datetime.strptime(row[2], "%Y-%m-%d %H:%M:%S")
+        id = row[0]
+        elapsed_time = (updated-created).days
+        if (elapsed_time >= 5):
             delete(id, table)
+            
         
     
 
 
 if __name__  == "__main__":
-    timePassed()
+    timePassed("quotes")
