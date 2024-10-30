@@ -39,17 +39,6 @@ def initialize_db():
         );
     ''')
  
-    cur.execute('''
-        CREATE TABLE IF NOT EXISTS dependencies (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            joke_id INTEGER,
-            quote_id INTEGER,
-            created_at TEXT DEFAULT CURRENT_TIMESTAMP,
-            updated_at TEXT DEFAULT CURRENT_TIMESTAMP,
-            FOREIGN KEY (joke_id) REFERENCES jokes(id),
-            FOREIGN KEY (quote_id) REFERENCES quotes(id)
-        );
-    ''')
    
     connect.commit()
     connect.close()
