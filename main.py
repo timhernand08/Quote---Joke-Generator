@@ -57,4 +57,6 @@ while(user != "done"):
   user = input("\nMake a new request: ")
 
 storeData(quote, joke)
-print("Data has been saved to memory. Thank you for using the Quote & Joke Generator!")
+print(f"\nQuote: {quote}")
+print(f"Joke: {joke}")
+end = input("\nData has been saved to memory. Thank you for using the Quote & Joke Generator!\nPress 'enter' key to exit.")
